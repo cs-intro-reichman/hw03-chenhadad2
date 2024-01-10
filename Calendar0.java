@@ -46,24 +46,23 @@ public class Calendar0 {
 	// All the other months have 31 days.
 	public static int nDaysInMonth(int month, int year) {
 		int days = 0;
-		if ((month == 4) || (month == 6) || (month == 9) || (month == 11)) {
+		if( month == 4 || month == 6 || month == 9 || month == 11)
 		days = 30;
-		}
 
-		if ((month == 1) || (month == 3) || (month == 5) || (month == 7) || (month == 8) || (month == 10) || (month == 12)) {
-			days = 31;
-		}
+	// February
+	else if (month == 2) {
 
-		if (month == 2) {
-		if (isLeapYear(year)) {
-			days = 28;
-		}
-		else {
+		if(isLeapYear(year))
 			days = 29;
+		else
+			days = 28;
+	}
 
-			}
-		}
-		return days;
+	// January, March, May, July, August, October, December
+	else
+		days = 31;
+
+	return days;
 		}
 	}
 
